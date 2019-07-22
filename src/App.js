@@ -39,10 +39,11 @@ class App extends Component {
   // Set Alert
   setAlert = (msg, type) => {
     this.setState({ alert: { msg: msg, type: type } });
+
+    setTimeout(() => this.setState({alert: null}), 5000);
   }
 
   render() {
-    console.log("Renderring app.js");
     const { users, loading, alert } = this.state;
 
     return (
