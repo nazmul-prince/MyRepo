@@ -18,16 +18,16 @@ const App = () => {
   const [alert, setAlert] = useState(null);
 
   //Search github users
-  const searchUsers = async text => {
-    setLoading(true);
-    const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${
-      process.env.REACT_APP_GITHUB_CLIENT_ID
-    }&
-    client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
+  // const searchUsers = async text => {
+  //   setLoading(true);
+  //   const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${
+  //     process.env.REACT_APP_GITHUB_CLIENT_ID
+  //   }&
+  //   client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
-    setUsers(res.data.items);
-    setLoading(false);
-  };
+  //   setUsers(res.data.items);
+  //   setLoading(false);
+  // };
 
   //Get single users info
   const getUser = async userName => {
@@ -56,12 +56,6 @@ const App = () => {
     setLoading(false);
   };
 
-  //Clear github users
-  const clearUsers = () => {
-    setUsers([]);
-    setLoading(false);
-  };
-
   // Set Alert
   const showAlert = (msg, type) => {
     setAlert({ msg, type });
@@ -84,12 +78,9 @@ const App = () => {
                 render={props => (
                   <Fragment>
                     <Search
-                      searchUsers={searchUsers}
-                      clearUsers={clearUsers}
-                      showClear={users.length > 0 ? true : false}
                       setAlert={showAlert}
                     />
-                    <Users loading={loading} users={users} />
+                    <Users />
                   </Fragment>
                 )}
               />
