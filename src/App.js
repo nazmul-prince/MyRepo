@@ -8,6 +8,7 @@ import Home from "./components/pages/Home";
 import NotFound from "./components/pages/NotFound";
 import GithubState from "./context/github/GithubState";
 import AlertState from "./context/alert/AlertState";
+import Version from "./components/pages/Version";
 import "./App.css";
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
             <Switch>
               <Route exact path="/" component = {Home} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/version" component={Version} />
               <Route exact path="/user/:login" component={User} />
               <Route component={NotFound} />
             </Switch>
